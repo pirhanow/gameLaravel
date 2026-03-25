@@ -10,7 +10,9 @@ Route::view('about', 'about');
 
 // Route::redirect('about-us', 'about', 301);
 Route::permanentRedirect('abut-me', 'about');
-Route::get('/user/{id}', function (string $id){
-return "User id: $id";
-});
+
+use App\Http\Controllers\UserController;
+Route::get('/user/{id}', [App\Http\Controllers\UserController::class,'show']);
+
+Route::get('profile', [App\Http\Controllers\UserController::class,'profile']);
 
